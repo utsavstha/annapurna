@@ -17,6 +17,7 @@ export default class CategoriesController {
         return menu
     }
 
+    
     public async show({params}: HttpContextContract){
         return Category.findOrFail(params.id)
     }
