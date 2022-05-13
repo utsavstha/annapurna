@@ -19,4 +19,4 @@ node ace serve > app.out.log 2> app.err.log < /dev/null &
 # node ace build --production
 # cd build
 # npm ci --production
-# node server.js
+# node server.j
