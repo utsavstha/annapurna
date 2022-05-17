@@ -9,7 +9,7 @@ export default class MenusController {
     public async store({request, response} : HttpContextContract){
         const newMenuSchema = schema.create({
             name: schema.string({trim: true}),
-            status: schema.boolean()
+
         })
         const payload = await request.validate({schema: newMenuSchema})
         const menu = await Menu.create(payload)
@@ -24,12 +24,11 @@ export default class MenusController {
     public async update({params, request}: HttpContextContract){
         const newMenuSchema = schema.create({
             name: schema.string({trim: true}),
-            status: schema.boolean()
+        
         })
         const payload = await request.validate({schema: newMenuSchema})
         const menu = await Menu.findOrFail(params.id)
         menu.name = payload.name
-        menu.status = payload.status
         return menu.save()
     
     }
