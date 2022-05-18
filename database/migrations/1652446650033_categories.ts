@@ -7,11 +7,11 @@ export default class Categories extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
       table.string('name')
-      table
-        .integer('menu_id')
-        .unsigned()
-        .references('menus.id')
-        .onDelete('CASCADE') 
+      // table
+      //   .integer('menu_id')
+      //   .unsigned()
+      //   .references('menus.id')
+      //   .onDelete('CASCADE') 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */

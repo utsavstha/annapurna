@@ -1,15 +1,19 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import FoodItem from 'App/Models/FoodItem'
-import {schema} from '@ioc:Adonis/Core/Validator'
+import {schema, rules} from '@ioc:Adonis/Core/Validator'
 export default class FoodItemsController {
     public async index(){
         return FoodItem.all()
     }
+
     public async store({request, response} : HttpContextContract){
         const newMenuSchema = schema.create({
             name: schema.string({trim: true}),
-            price: schema.number(),
-            categoryId: schema.number()
+            price: schema.number([
+                rules.range(50, 5000)
+              ]),
+            categoryId: schema.number(),
+            description: schema.string({trim: true}),
         })
         const payload = await request.validate({schema: newMenuSchema})
         const item = await FoodItem.create(payload)
@@ -25,13 +29,15 @@ export default class FoodItemsController {
         const newMenuSchema = schema.create({
             name: schema.string({trim: true}),
             price: schema.number(),
-            categoryId: schema.number()
+            categoryId: schema.number(),
+            description: schema.string({trim: true}),
         })
         const payload = await request.validate({schema: newMenuSchema})
         const menu = await FoodItem.findOrFail(params.id)
         menu.name = payload.name
         menu.price = payload.price
         menu.categoryId = payload.categoryId
+        menu.description = payload.description
         return menu.save()
     
     }

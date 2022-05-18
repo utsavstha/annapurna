@@ -12,8 +12,8 @@ export default class Category extends BaseModel {
   @column()
   public name: string;
 
-  @column()
-  public menuId: number;
+  // @column()
+  // public menuId: number;
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime

@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
-export default class FoodItem extends BaseModel {
+export default class OrderItem extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
@@ -9,16 +9,23 @@ export default class FoodItem extends BaseModel {
   public createdAt: DateTime
 
   @column()
-  public name: string;
+  public foodItemId: number;
 
   @column()
-  public description: string;
+  public orderId: number;
+
+
+  @column()
+  public name: string;
 
   @column()
   public price: number;
 
   @column()
-  public categoryId: number;
+  public quantity: number;
+
+  @column()
+  public isCooked: boolean;
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime

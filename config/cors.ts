@@ -20,7 +20,7 @@ const corsConfig: CorsConfig = {
   | you can define a function to enable/disable it on per request basis as well.
   |
   */
-  enabled: false,
+  enabled: true,
 
   // You can also use a function that return true or false.
   // enabled: (request) => request.url().startsWith('/api')
@@ -44,7 +44,7 @@ const corsConfig: CorsConfig = {
   |                     one of the above values.
   |
   */
-  origin: true,
+  origin: ['http://localhost:3000'],
 
   /*
   |--------------------------------------------------------------------------
@@ -98,12 +98,7 @@ const corsConfig: CorsConfig = {
   |
   */
   exposeHeaders: [
-    'cache-control',
-    'content-language',
-    'content-type',
-    'expires',
-    'last-modified',
-    'pragma',
+    '*'
   ],
 
   /*
@@ -117,7 +112,7 @@ const corsConfig: CorsConfig = {
   | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials
   |
   */
-  credentials: true,
+  credentials: false,
 
   /*
   |--------------------------------------------------------------------------
