@@ -2,7 +2,6 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Notification from 'App/Models/Notification'
 import {schema} from '@ioc:Adonis/Core/Validator'
 
-
 export default class NotificationsController {
     public async index(){
         return Notification.all()
