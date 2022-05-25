@@ -29,6 +29,7 @@ export default class OrdersController {
         return response
     }
 
+    
     public async history(){
         let orders = await Order.query().where("closed", true).orderBy('id', 'asc')
         var response = new Array()
