@@ -45,7 +45,6 @@ export default class OrdersController {
         }
         return response
     }
-    
 
     public async fetchAll(){
         let orders = await Order.query().where("closed", false).orderBy('id', 'asc')
