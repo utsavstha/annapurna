@@ -32,7 +32,6 @@ export default class CategoriesController {
         response.status(200)
         return category
     }
-
     
     public async show({params}: HttpContextContract){
         return Category.findOrFail(params.id)
