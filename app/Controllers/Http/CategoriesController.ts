@@ -45,7 +45,6 @@ export default class CategoriesController {
         const payload = await request.validate({schema: newMenuSchema})
         const menu = await Category.findOrFail(params.id)
         menu.name = payload.name
-
         return menu.save()
     
     }
