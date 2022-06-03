@@ -10,7 +10,6 @@ export default class FoodItems extends BaseSchema {
       table.decimal('price')
       table.string('description')
       table.boolean('is_cooked')
-
       table
         .integer('category_id')
         .unsigned()
