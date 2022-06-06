@@ -14,9 +14,7 @@ export default class Orders extends BaseSchema {
         .unsigned()
         .references('tables.id')
         .onDelete('CASCADE')
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
+      
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })
