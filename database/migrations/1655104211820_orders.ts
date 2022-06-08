@@ -14,7 +14,6 @@ export default class Orders extends BaseSchema {
         .unsigned()
         .references('tables.id')
         .onDelete('CASCADE')
-      
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })
