@@ -14,7 +14,6 @@ export default class OrderItems extends BaseSchema {
         .unsigned()
         .references('food_items.id')
         .onDelete('CASCADE') 
-
       table
         .integer('order_id')
         .unsigned()
