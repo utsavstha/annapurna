@@ -17,9 +17,7 @@ export default class Bookings extends BaseSchema {
       table.timestamp("booking_end_date_time")
 
       table.string('contact_information')
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
+      
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })
