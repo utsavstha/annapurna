@@ -6,13 +6,7 @@ import Booking from 'App/Models/Booking'
 import Database from '@ioc:Adonis/Lucid/Database'
 
 export default class TablesController {
-    // public async index () {
-    //     // return {"data": Table.all()};
-    //     Ws.io.emit('news', { username: 'virk' })
-
-    //     return Table.all();
-
-    // }
+ 
     public formatDateWithZone(date, tz) {
         var s = date.toLocaleString('en-GB', { timeZone: tz });
         var a = s.split(/\D/);
