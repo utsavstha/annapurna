@@ -33,7 +33,7 @@ export default class TablesController {
         const activeBookings : number[] = [];
         console.log(bookings.length);
         
-        // var currentDateTime = new D  ate()
+
         for(var i = 0; i < bookings.length; i++){
             let bookingStart = new Date(bookings[i].bookingDateTime.toString()).getTime()
             let bookingEnd = new Date(bookings[i].bookingEndDateTime.toString()).getTime()
