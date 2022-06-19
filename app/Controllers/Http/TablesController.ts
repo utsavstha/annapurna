@@ -38,7 +38,6 @@ export default class TablesController {
             let bookingStart = new Date(bookings[i].bookingDateTime.toString()).getTime()
             let bookingEnd = new Date(bookings[i].bookingEndDateTime.toString()).getTime()
             console.log(bookings[i].bookingDateTime);
-            
             console.log(currentDateTime.getTime() >= bookingStart);
             console.log(currentDateTime.getTime() <= bookingEnd);
             
