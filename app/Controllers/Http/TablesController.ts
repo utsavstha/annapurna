@@ -86,6 +86,7 @@ export default class TablesController {
         return menu.save()
     
     }
+    
     public async destroy({params}: HttpContextContract){
         const menu = await Table.findOrFail(params.id)
         return menu.delete()
