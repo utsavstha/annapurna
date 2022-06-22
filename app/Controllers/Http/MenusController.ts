@@ -2,7 +2,6 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import {schema} from '@ioc:Adonis/Core/Validator'
 import Menu from 'App/Models/Menu'
 export default class MenusController {
-  
     public async index(){
         return Menu.all()
     }
