@@ -7,7 +7,6 @@ export default class NotificationsController {
     public async index(){
         return Notification.all()
     }
-
     public async store({request, response} : HttpContextContract){
         const newMenuSchema = schema.create({
             table_name: schema.string({trim: true}),
