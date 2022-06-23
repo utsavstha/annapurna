@@ -17,7 +17,6 @@ export default class MenusController {
     public async show({params}: HttpContextContract){
         return Menu.findOrFail(params.id)
     }
-
     public async update({params, request}: HttpContextContract){
         const newMenuSchema = schema.create({
             name: schema.string({trim: true}),
