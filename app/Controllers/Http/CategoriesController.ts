@@ -46,6 +46,7 @@ export default class CategoriesController {
         menu.name = payload.name
         return menu.save()
     }
+    
     public async destroy({params}: HttpContextContract){
         const menu = await Category.findOrFail(params.id)
         return menu.delete()
