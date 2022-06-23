@@ -7,7 +7,6 @@ export default class Notification extends BaseModel {
 
   @column()
   public table_name: string;
-
   @column()
   public product_name: string;
   
