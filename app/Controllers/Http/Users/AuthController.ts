@@ -25,7 +25,6 @@ export default class AuthController {
     const user = await User.create(data)
     return response.created(user)
   }
-
   
   public async update({params, request}: HttpContextContract){
     const newMenuSchema = schema.create({
