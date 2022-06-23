@@ -35,6 +35,7 @@ export default class CategoriesController {
     public async show({params}: HttpContextContract){
         return Category.findOrFail(params.id)
     }
+    
     public async update({params, request}: HttpContextContract){
         const newMenuSchema = schema.create({
             name: schema.string({trim: true}),
@@ -49,5 +50,5 @@ export default class CategoriesController {
         const menu = await Category.findOrFail(params.id)
         return menu.delete()
     }
-    
+
 }
