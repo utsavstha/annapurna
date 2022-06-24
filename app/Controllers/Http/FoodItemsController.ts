@@ -40,6 +40,7 @@ export default class FoodItemsController {
         menu.description = payload.description
         return menu.save()
     }
+    
     public async destroy({params}: HttpContextContract){
         const menu = await FoodItem.findOrFail(params.id)
         return menu.delete()
