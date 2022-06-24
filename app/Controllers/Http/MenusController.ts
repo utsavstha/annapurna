@@ -8,7 +8,6 @@ export default class MenusController {
     public async store({request, response} : HttpContextContract){
         const newMenuSchema = schema.create({
             name: schema.string({trim: true}),
-
         })
         const payload = await request.validate({schema: newMenuSchema})
         const menu = await Menu.create(payload)
