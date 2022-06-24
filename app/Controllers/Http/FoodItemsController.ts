@@ -45,4 +45,5 @@ export default class FoodItemsController {
         const menu = await FoodItem.findOrFail(params.id)
         return menu.delete()
     }
+    
 }
