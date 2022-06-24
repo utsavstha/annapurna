@@ -49,4 +49,5 @@ export default class CategoriesController {
         const menu = await Category.findOrFail(params.id)
         return menu.delete()
     }
+    
 }
