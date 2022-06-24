@@ -15,7 +15,6 @@ export default class MenusController {
         response.status(201)
         return menu
     }
-
     public async show({params}: HttpContextContract){
         return Menu.findOrFail(params.id)
     }
