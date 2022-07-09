@@ -67,7 +67,7 @@ export default class BookingsController {
             firstName: schema.string({trim: true}),
             lastName: schema.string({trim: true}),
             contactInformation: schema.string({trim: true}, [rules.mobile()]),
-            bookingDateTime: schema.date({}, [rules.required()]),
+            bookingDateTime: schema.string({}, [rules.required()]),
             bookingEndDateTime: schema.string({}, [rules.required()]),
 
         })
@@ -83,13 +83,13 @@ export default class BookingsController {
             return res;
         } else{
             const payload = await request.validate({schema: newSchema})
-            const model = await Booking.findOrFail(params.id)
-            model.tableId = model.tableId
-            model.firstName = model.firstName
-            model.lastName = model.lastName
-            model.contactInformation = model.contactInformation
-            model.bookingDateTime = model.bookingDateTime
-            model.bookingEndDateTime = model.bookingEndDateTime
+            var model = await Booking.findOrFail(params.id)
+            model.tableId = payload.tableId
+            model.firstName = payload.firstName
+            model.lastName = payload.lastName
+            model.contactInformation = payload.contactInformation
+            model.bookingDateTime = payload.bookingDateTime
+            model.bookingEndDateTime = payload.bookingEndDateTime
 
             return model.save()
         }

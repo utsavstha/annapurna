@@ -26,6 +26,8 @@ export default class FoodItemsController {
     }
 
     public async update({params, request}: HttpContextContract){
+        console.log(params.id);
+        
         const newMenuSchema = schema.create({
             name: schema.string({trim: true}),
             price: schema.number(),

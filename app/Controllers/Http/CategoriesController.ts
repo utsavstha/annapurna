@@ -37,8 +37,7 @@ export default class CategoriesController {
     }
     public async update({params, request}: HttpContextContract){
         const newMenuSchema = schema.create({
-            name: schema.string({trim: true}),
-            status: schema.boolean()
+            name: schema.string({trim: true})
         })
         const payload = await request.validate({schema: newMenuSchema})
         const menu = await Category.findOrFail(params.id)

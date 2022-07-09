@@ -34,11 +34,13 @@ Route.group(() => {
   Route.get('transactionHistory', 'OrdersController.transactionHistory');
   Route.get('fetchAllBooking', 'BookingsController.fetchAll');
   Route.get('users', 'Users/AuthController.users');
+  Route.get('users/:id', 'Users/AuthController.getUser');
   Route.get('setCooked/:id', 'OrdersController.setCooked');
 
   Route.patch('updateOrder', 'OrdersController.update');
   Route.post('closeOrder/:id', 'OrdersController.closeOrder');
-  Route.patch('update/:id', 'Users/AuthController.update');
+  Route.put('users/:id', 'Users/AuthController.update');
+  Route.delete('users/:id', 'Users/AuthController.delete');
   Route.resource('food', 'FoodItemsController').apiOnly;
   Route.resource('table', 'TablesController').apiOnly;
   Route.resource('order', 'OrdersController').apiOnly;

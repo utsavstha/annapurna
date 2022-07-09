@@ -47,14 +47,14 @@ export default class OrdersController {
     }
 
     public async fetchAll(){
-        let orders = await Order.query().where("closed", false).orderBy('id', 'asc')
+        let orders = await Order.query().where("closed", false).orderBy('id', 'desc')
         var response = new Array()
         for (var i = 0; i < orders.length; i++){
             // let foodItems = await FoodItem.findBy('category_id', categories[i].id);
             let orderItems = await OrderItem
             .query()
             .where('order_id', '=',  orders[i].id)
-            .where('is_cooked', 0)
+            // .where('is_cooked', 0)
             let table = await Table.query().where('id', orders[i].tableId).first();
             if (orderItems.length > 0){
                 response.push({"table_name": table!.name, "order_id": orders[i].id, "items": orderItems})            
@@ -72,7 +72,12 @@ export default class OrdersController {
             .query()
             .where('order_id', '=',  orders[i].id)
             let table = await Table.query().where('id', orders[i].tableId).first();
-            response.push({"table_name": table!.name, "order_id": orders[i].id, "items": orderItems})            
+            let orderDate = orders[i].createdAt;
+
+            var dateValue = orderDate.year +"-"+ (orderDate.month+1) +"-"+ orderDate.day + " " + orderDate.hour + ":" + orderDate.minute + ":" + orderDate.second;
+
+           
+            response.push({"table_name": table!.name, "created_at": dateValue, "order_id": orders[i].id, "items": orderItems})            
         }
         return response
     }

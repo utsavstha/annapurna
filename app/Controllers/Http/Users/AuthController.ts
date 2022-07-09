@@ -12,6 +12,11 @@ export default class AuthController {
     return User.all()
 
   }
+
+  public async getUser({params, request}: HttpContextContract){
+    const user = await User.findOrFail(params.id)
+    return user
+  }
   public async register({ request, response }: HttpContextContract) {
     // validate email
     const validations = schema.create({
@@ -24,6 +29,10 @@ export default class AuthController {
     const data = await request.validate({ schema: validations })
     const user = await User.create(data)
     return response.created(user)
+  }
+  public async delete({params, request}: HttpContextContract){
+    const user = await User.findOrFail(params.id)
+    return user.delete()
   }
   public async update({params, request}: HttpContextContract){
     const newMenuSchema = schema.create({
@@ -76,7 +85,7 @@ export default class AuthController {
     
     await Mail.send((message) => {
       message
-        .from('Annapurna')
+        .from('utzavshr@gmail.com')
         .to(user.email)
         .subject('Password Reset')
         .html(code.toString());

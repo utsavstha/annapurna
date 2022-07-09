@@ -44,11 +44,11 @@ export default mailConfig({
     */
     smtp: {
       driver: 'smtp',
-      host: 'smtp.gmail.com',
+      host: 'smtp-relay.sendinblue.com',
       port: '587',
 			auth: {
-				user: 'car.dealership.help.desk@gmail.com',
-				pass: 'iapbsscyctbzjfbx',
+				user: 'utzavshr@gmail.com',
+				pass: 'xsmtpsib-38b42dbab8fda08f07996927b4a21319e71891a8c677de78906db4111c009289-1dWBtAqz3DwfUHsk',
 				type: 'login',
 			}
     },
